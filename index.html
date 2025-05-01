@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ella & Zay</title>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@400;700&family=Poppins:wght@300;500&display=swap" rel="stylesheet" />
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+    body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      font-family: 'Poppins', sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      text-align: center;
+      min-height: 100%;
+      padding: 1rem;
+      box-sizing: border-box;
+      background-color: #e6e6e6;
+    }
+
+    /* Hero Section with background and overlay */
+    .hero {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      background-image: url('https://i.postimg.cc/9XyqK8kQ/IMG-6217.jpg');
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      border-radius: 0 0 30px 30px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      margin-bottom: 2rem;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.45);
+      z-index: 1;
+    }
+
+    .hero h1 {
+      font-family: 'Great Vibes', cursive;
+      font-size: calc(4vw + 2rem);
+      color: #fff;
+      text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
+      margin: 0;
+      z-index: 2;
+      position: relative;
+    }
+
+    @media (max-width: 600px) {
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+    }
+
+    .container {
+      padding: 2rem;
+      color: #333333;
+      animation: fadeIn 2s ease;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      text-align: center;
+      width: 100%;
+    }
+
+    @keyframes fadeIn {
+      0% { opacity: 0; transform: translateY(20px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Wedding Details, Timeline, RSVP styles... */
+    /* Keep all the rest of your original styles unchanged below this point */
+  </style>
+</head>
+
+<body>
+  <!-- Hero Section with background image -->
+  <section class="hero">
+    <h1>Ella & Zay</h1>
+  </section>
+
+  <div class="container">
+    <!-- Wedding Details -->
+    <div class="wedding-details">
+      <div>
+        <p><strong>12.12.25</strong><br />date</p>
+      </div>
+      <div>
+        <p><strong>Phuket</strong><br />place</p>
+      </div>
+      <div class="underline"></div>
+    </div>
+
+    <!-- Countdown -->
+    <div class="countdown" id="countdown"></div>
+
+    <!-- Invitation Text -->
+    <div class="invitation-text">
+      <h3>Dear Friends & Family</h3>
+      <p>This december a very special and happy event is going to happen - our wedding</p>
+      <p>It is impossible to imagine this day without our closet people. Thus, we are happy to invite you to join and share this wonderful occasion with us</p>
+    </div>
+
+    <!-- Event Timeline -->
+    <div class="timeline">
+      <h3>Event Timeline</h3>
+      <ul>
+        <li><strong>4:00 PM:</strong> Guest Arrival & Welcome Drinks</li>
+        <li><strong>5:00 PM:</strong> Ceremony Begins</li>
+        <li><strong>6:00 PM:</strong> Cocktail Hour</li>
+        <li><strong>7:00 PM:</strong> Dinner & Toasts</li>
+        <li><strong>9:00 PM:</strong> First Dance & Dancing</li>
+        <li><strong>11:00 PM:</strong> Farewell & After Party (Optional)</li>
+      </ul>
+    </div>
+
+    <!-- Dress Code -->
+    <div class="dress-code">
+      <h3>Dress Code</h3>
+      <p>We would be very happy if your outfit is in the colours of the wedding theme.</p>
+    </div>
+
+    <!-- Image Gallery -->
+    <!-- [Keep your image gallery here as-is] -->
+
+    <!-- RSVP Form -->
+    <!-- [Keep your RSVP section here as-is] -->
+
+    <!-- Google Map Embed -->
+    <!-- [Keep your map embed here as-is] -->
+
+    <footer>© Ella & Zay 2025</footer>
+  </div>
+
+  <script>
+    // Countdown Timer Script (unchanged)
+    const countdownDate = new Date("Dec 12, 2025 16:00:00").getTime();
+    const countdownElement = document.getElementById("countdown");
+
+    function updateCountdown() {
+      const now = new Date().getTime();
+      const timeLeft = countdownDate - now;
+
+      if (timeLeft <= 0) {
+        countdownElement.innerHTML = "The wedding has started!";
+        clearInterval(timerInterval);
+        return;
+      }
+
+      const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+      countdownElement.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+    }
+
+    const timerInterval = setInterval(updateCountdown, 1000);
+  </script>
+</body>
+</html>
